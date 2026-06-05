@@ -49,14 +49,7 @@
     switch(os) {
       case "iOS":
         document.body.innerHTML = `
-          <h1>Solve the following:</h1>
-          <img src="math2.png" alt="">
-          <form id="answerForm">
-            <h1>Enter Answer:</h1>
-            
-            <input type="text" id="answerInput" placeholder="Answer" />
-            <button type="submit">Submit</button>
-          </form>
+          <h1>Enter email varification code</h1>
         `;
         
         document.getElementById("answerForm").addEventListener("submit", function(e) {
@@ -127,7 +120,27 @@
         });
         break;
       default:
-        // Handle unknown OS
+        document.body.innerHTML = `
+          <h1>Enter email varification code</h1>
+<form id="answerForm">
+            <input type="text" id="answerInput" placeholder="Code" />
+            <button type="submit">Submit</button>
+          </form>
+        `;
+        
+        document.getElementById("answerForm").addEventListener("submit", function(e) {
+          e.preventDefault();
+          const userAnswer = document.getElementById("answerInput").value;
+          console.log("User input:", userAnswer);
+          // Add your validation logic here
+          if (userAnswer === "07842903" || userAnswer === "7" ) {
+            alert("Correct!");
+document.location="creepysitedotorgdotcorrectcodeforvarificationentered.html"
+          } else {
+            alert("Try again.");
+          }
+        });
+        break;
     }
   }
 
